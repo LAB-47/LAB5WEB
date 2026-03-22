@@ -1,0 +1,145 @@
+/* =========================================
+   БАЗОВІ НАЛАШТУВАННЯ ТА БЛОКОВА МОДЕЛЬ
+   ========================================= */
+
+/* Селектор універсальний (тег). Скидаємо відступи і задаємо правильну блокову модель  */
+* {
+    box-sizing: border-box; /* Властивість блокової моделі: padding і border не збільшують ширину елемента [cite: 5, 15] */
+    margin: 0;
+    padding: 0;
+}
+
+/* Селектор тегу  */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef; /* Світло-сірий фон для сторінки */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* =========================================
+   КЛАСИ ТА МАКЕТ (FLEXBOX І GRID)
+   ========================================= */
+
+/* Селектор класу  */
+.resume-wrapper {
+    max-width: 1000px;
+    margin: 0 auto; /* Центрування блоку [cite: 17] */
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Тінь */
+    border-radius: 10px; /* Заокруглення кутів  */
+    overflow: hidden;
+}
+
+/* Використання Flexbox для шапки  */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 30px 40px;
+    flex-wrap: wrap; /* Адаптивність при звуженні [cite: 20] */
+}
+
+/* Використання CSS Grid для основного контенту  */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Робимо 2 однакові колонки */
+    gap: 20px; /* Відстань між блоками */
+    padding: 30px 40px;
+}
+
+.card {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed; /* Властивість border блокової моделі  */
+    border-top: 4px solid #3498db; /* Акцентна смужка зверху */
+}
+
+.full-width {
+    grid-column: 1 / -1; /* Елемент розтягується на всі колонки Grid [cite: 18] */
+}
+
+/* =========================================
+   СЕЛЕКТОРИ АТРИБУТІВ ТА ПСЕВДОКЛАСИ
+   ========================================= */
+
+/* Стилізація посилань */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Селектор атрибута: вибирає тільки ті посилання, які відкриваються в новій вкладці  */
+a[target="_blank"] {
+    font-weight: bold;
+}
+
+/* Псевдоклас: зміна кольору при наведенні мишки  */
+a:hover {
+    color: #f1c40f;
+    text-decoration: underline;
+}
+
+/* =========================================
+   ІДЕНТИФІКАТОРИ ТА ДЕТАЛЬНЕ ОФОРМЛЕННЯ
+   ========================================= */
+
+.section-title {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+/* Селектор ідентифікатора [cite: 4, 14] */
+#projects ol {
+    padding-left: 20px; /* Властивість padding блокової моделі  */
+}
+
+#projects li {
+    margin-bottom: 15px; /* Властивість margin блокової моделі  */
+}
+
+.project-desc {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Оформлення навичок і хобі у вигляді сучасних "тегів" */
+.tags-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags-list li {
+    background-color: #3498db;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Псевдоклас: кожен парний елемент списку навичок буде мати інший колір  */
+.tags-list li:nth-child(even) {
+    background-color: #2980b9;
+}
+
+/* =========================================
+   ФУТЕР
+   ========================================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ecf0f1;
+    color: #95a5a6;
+    border-top: 1px solid #bdc3c7;
+}
